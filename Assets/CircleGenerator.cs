@@ -8,7 +8,7 @@ public class CircleGenerator : MonoBehaviour
     [Range(3, 100)]
     public int resolution;
 
-    [Range(1, 180)]
+    [Range(0.1f, 180)]
     public float radius;
 
     CircleFace circleFace;

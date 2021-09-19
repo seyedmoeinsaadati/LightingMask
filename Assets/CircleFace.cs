@@ -27,6 +27,14 @@ public class CircleFace
         {
             Vector3 rotatePoint = Rotate(vertices[i - 1], 360 / resolution * Mathf.Deg2Rad, true);
             vertices[i] = rotatePoint;
+
+            // if (i > 1)
+            // {
+            //     var j = (i - 2) * 3;
+            //     triangles[j + 0] = 0;
+            //     triangles[j + 1] = i - 1;
+            //     triangles[j + 2] = i;
+            // }
         }
 
         int triangleIndex = 0;
