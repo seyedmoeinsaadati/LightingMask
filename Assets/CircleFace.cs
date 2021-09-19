@@ -4,27 +4,23 @@ public class CircleFace
 {
     Mesh mesh;
     int resolution;
-    Vector3 centerPos, firstPoint, direction;
+    Vector3 direction;
     float radius;
 
-    public CircleFace(Mesh mesh, int resolution, Vector3 centerPos, Vector3 diirection, float radius)
+    public CircleFace(Mesh mesh, int resolution, Vector3 direction, float radius)
     {
         this.mesh = mesh;
         this.resolution = resolution;
-        this.centerPos = Vector3.zero;
-        this.direction = diirection;
         this.radius = radius;
     }
 
     public void BuildMesh()
     {
-        this.firstPoint = centerPos + direction;
-
         Vector3[] vertices = new Vector3[resolution + 1];
         int[] triangles = new int[resolution * 3];
 
-        vertices[0] = centerPos;
-        vertices[1] = firstPoint * radius;
+        vertices[0] = Vector3.zero;
+        vertices[1] = direction * radius;
 
         for (int i = 2; i < vertices.Length; i++)
         {

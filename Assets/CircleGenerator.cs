@@ -9,7 +9,7 @@ public class CircleGenerator : MonoBehaviour
     public MeshFilter meshFilter;
     [Range(3, 100)]
     public int resolution;
-    
+
     [Range(1, 180)]
     public float radius;
 
@@ -23,6 +23,11 @@ public class CircleGenerator : MonoBehaviour
     public void GenerateMesh()
     {
         circleFace.BuildMesh();
+    }
+
+    public void GenerateCircleMesh()
+    {
+
     }
 
     private void OnValidate()
