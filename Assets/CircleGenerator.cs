@@ -1,12 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CircleGenerator : MonoBehaviour
 {
     public bool autoUpdate;
     public MeshFilter meshFilter;
+
     [Range(3, 100)]
     public int resolution;
 
@@ -15,27 +13,17 @@ public class CircleGenerator : MonoBehaviour
 
     CircleFace circleFace;
 
-    private void Init()
+    public void GenerateMesh(int resolution, float radius)
     {
-        circleFace = new CircleFace(meshFilter.sharedMesh, resolution, meshFilter.transform.position, Vector3.up, radius);
-    }
-
-    public void GenerateMesh()
-    {
+        circleFace = new CircleFace(meshFilter.sharedMesh, resolution, Vector3.up, radius);
         circleFace.BuildMesh();
-    }
-
-    public void GenerateCircleMesh()
-    {
-
     }
 
     private void OnValidate()
     {
         if (autoUpdate)
         {
-            Init();
-            GenerateMesh();
+            GenerateMesh(resolution, radius);
         }
     }
 }

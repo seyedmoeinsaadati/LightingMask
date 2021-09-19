@@ -156,7 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoUpdate: 1
   meshFilter: {fileID: 690091921}
-  resolution: 3
+  resolution: 9
   radius: 1
 --- !u!23 &690091920
 MeshRenderer:
@@ -215,7 +215,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 690091918}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 4.63}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 802567967}
@@ -325,9 +325,93 @@ MonoBehaviour:
   m_GameObject: {fileID: 802567965}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2851a014ca28cf44d97ebcf74af73aac, type: 3}
+  m_Script: {fileID: 11500000, guid: e930d0df650c5f0429a214597a3f2908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maskGenerator: {fileID: 0}
+--- !u!1 &1344628343
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1344628346}
+  - component: {fileID: 1344628345}
+  - component: {fileID: 1344628344}
+  m_Layer: 0
+  m_Name: Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &1344628344
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344628343}
+  m_Enabled: 1
+--- !u!20 &1344628345
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344628343}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &1344628346
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344628343}
+  m_LocalRotation: {x: 0.21557121, y: -0.48663807, z: 0.12529965, w: 0.83726484}
+  m_LocalPosition: {x: 3.1625538, y: 2.3888688, z: -8.546071}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1451507246
 Mesh:
   m_ObjectHideFlags: 0
@@ -339,14 +423,14 @@ Mesh:
   m_SubMeshes:
   - serializedVersion: 2
     firstByte: 0
-    indexCount: 9
+    indexCount: 27
     topology: 0
     baseVertex: 0
     firstVertex: 0
-    vertexCount: 4
+    vertexCount: 10
     localAABB:
-      m_Center: {x: 0.00000008940697, y: 0.24999991, z: 0}
-      m_Extent: {x: 0.8660253, y: 0.7500001, z: 0}
+      m_Center: {x: -0.00000020861626, y: 0.030153453, z: 0}
+      m_Extent: {x: 0.98480785, y: 0.96984655, z: 0}
   m_Shapes:
     vertices: []
     shapes: []
@@ -363,10 +447,10 @@ Mesh:
   m_KeepVertices: 1
   m_KeepIndices: 1
   m_IndexFormat: 0
-  m_IndexBuffer: 000001000200000002000300000003000100
+  m_IndexBuffer: 000001000200000002000300000003000400000004000500000005000600000006000700000007000800000008000900000009000100
   m_VertexData:
     serializedVersion: 3
-    m_VertexCount: 4
+    m_VertexCount: 10
     m_Channels:
     - stream: 0
       offset: 0
@@ -424,8 +508,8 @@ Mesh:
       offset: 0
       format: 0
       dimension: 0
-    m_DataSize: 96
-    _typelessdata: 0000000000000000000000000000000000000000ffff7fbf000000000000803f000000000000000000000000000080bfd8b35d3ffdffffbe000000000000000000000000000080bfd5b35dbf030000bf000000000000000000000000000080bf
+    m_DataSize: 240
+    _typelessdata: 0000000000000000000000000000000000000000000080bf000000000000803f000000000000000000000000000080bfb78d243f801b443f000000000000000000000000ffff7fbf5b1c7c3ff8d0313e000000000000000000000000ffff7fbfdeb35d3fe8ffffbe000000000000000000000000ffff7fbf661daf3eac8f70bf000000000000000000000000ffff7fbf191dafbeba8f70bf000000000000000000000000ffff7fbfcab35dbf180000bf000000000000000000000000ffff7fbf621c7cbf56d0313e000000000000000000000000000080bfd78d24bf661b443f000000000000000000000000000080bf
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -479,8 +563,8 @@ Mesh:
       m_BitSize: 0
     m_UVInfo: 0
   m_LocalAABB:
-    m_Center: {x: 0.00000008940697, y: 0.24999991, z: 0}
-    m_Extent: {x: 0.8660253, y: 0.7500001, z: 0}
+    m_Center: {x: -0.00000020861626, y: 0.030153453, z: 0}
+    m_Extent: {x: 0.98480785, y: 0.96984655, z: 0}
   m_MeshUsageFlags: 0
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 

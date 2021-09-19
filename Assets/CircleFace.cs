@@ -11,6 +11,7 @@ public class CircleFace
     {
         this.mesh = mesh;
         this.resolution = resolution;
+        this.direction = direction;
         this.radius = radius;
     }
 
