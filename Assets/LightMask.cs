@@ -17,7 +17,7 @@ public class LightMask : MonoBehaviour
     void UpdateMask()
     {
         maskGenerator.transform.localPosition = transform.forward * mlight.range;
-        float scale = Mathf.Tan(mlight.spotAngle / 2 * Mathf.PI / 180);
+        float scale = Mathf.Tan(mlight.spotAngle / 2 * Mathf.Deg2Rad);
         print(scale);
         maskGenerator.GenerateMesh(maskGenerator.resolution, mlight.range * scale);
     }

@@ -23,27 +23,20 @@ public class CircleFace
         vertices[0] = Vector3.zero;
         vertices[1] = direction * radius;
 
+        // calculating vertices
         for (int i = 2; i < vertices.Length; i++)
         {
-            Vector3 rotatePoint = Rotate(vertices[i - 1], 360 / resolution * Mathf.Deg2Rad, true);
+            Vector3 rotatePoint = Rotate(vertices[i - 1], (float)360 / resolution * Mathf.Deg2Rad, true);
             vertices[i] = rotatePoint;
-
-            // if (i > 1)
-            // {
-            //     var j = (i - 2) * 3;
-            //     triangles[j + 0] = 0;
-            //     triangles[j + 1] = i - 1;
-            //     triangles[j + 2] = i;
-            // }
         }
 
+        // calculating triangles
         int triangleIndex = 0;
         for (int i = 0; i < vertices.Length - 1; i++)
         {
             triangles[triangleIndex] = 0;
             triangles[triangleIndex + 1] = i + 1;
             triangles[triangleIndex + 2] = (i == vertices.Length - 2) ? 1 : i + 2;
-
             triangleIndex += 3;
         }
 
