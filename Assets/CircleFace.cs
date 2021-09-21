@@ -10,7 +10,6 @@ public class CircleFace
 
     public CircleFace()
     {
-
     }
 
     public CircleFace(Mesh mesh, int resolution, Vector3 direction, float radius)
