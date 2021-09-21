@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CircleFace
@@ -7,7 +8,17 @@ public class CircleFace
     Vector3 direction;
     float radius;
 
+    public CircleFace()
+    {
+
+    }
+
     public CircleFace(Mesh mesh, int resolution, Vector3 direction, float radius)
+    {
+        Init(mesh, resolution, direction, radius);
+    }
+
+    public void Init(Mesh mesh, int resolution, Vector3 direction, float radius)
     {
         this.mesh = mesh;
         this.resolution = resolution;
@@ -15,7 +26,7 @@ public class CircleFace
         this.radius = radius;
     }
 
-    public void BuildMesh()
+    public void RefreshMesh()
     {
         Vector3[] vertices = new Vector3[resolution + 1];
         int[] triangles = new int[resolution * 3];
@@ -26,7 +37,7 @@ public class CircleFace
         // calculating vertices
         for (int i = 2; i < vertices.Length; i++)
         {
-            Vector3 rotatePoint = Rotate(vertices[i - 1], (float)360 / resolution * Mathf.Deg2Rad, true);
+            Vector3 rotatePoint = vertices[i - 1].RotateXY((float)360 / resolution * Mathf.Deg2Rad, true);
             vertices[i] = rotatePoint;
         }
 
@@ -45,17 +56,4 @@ public class CircleFace
         mesh.triangles = triangles;
         mesh.RecalculateNormals();
     }
-
-    public static Vector3 Rotate(Vector3 vector, float angle, bool clockwise) //in radians
-    {
-        if (clockwise)
-        {
-            angle = 2 * Mathf.PI - angle;
-        }
-
-        float xVal = vector.x * Mathf.Cos(angle) - vector.y * Mathf.Sin(angle);
-        float yVal = vector.x * Mathf.Sin(angle) + vector.y * Mathf.Cos(angle);
-        return new Vector3(xVal, yVal, 0);
-    }
-
 }

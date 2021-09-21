@@ -13,10 +13,18 @@ public class CircleGenerator : MonoBehaviour
 
     CircleFace circleFace;
 
+    private void Awake()
+    {
+        circleFace = new CircleFace();
+    }
+
     public void GenerateMesh(int resolution, float radius)
     {
-        circleFace = new CircleFace(meshFilter.sharedMesh, resolution, Vector3.up, radius);
-        circleFace.BuildMesh();
+        if (circleFace == null)
+            circleFace = new CircleFace();
+
+        circleFace.Init(meshFilter.sharedMesh, resolution, Vector3.up, radius);
+        circleFace.RefreshMesh();
     }
 
     private void OnValidate()
